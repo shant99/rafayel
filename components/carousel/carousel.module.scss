@@ -1,0 +1,23 @@
+.carousel-container{
+    width: 100%;
+    padding: 100px;
+    position: relative;
+    background-color: #0000003b;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 150;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.carousel-wrapper{
+    width: 100%;
+    background-color: white;
+    border: 1px solid red;
+}
+.carousel{
+    width: 80%;
+}

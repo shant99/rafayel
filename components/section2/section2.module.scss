@@ -1,0 +1,203 @@
+.section2-container {
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  background-color: #f2f2f2;
+}
+.section2 {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 160px 0 53px 0;
+}
+.section2-aside {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  height: auto;
+  border-right: 1px solid #7070703c;
+  width: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  z-index: 5;
+  & h2 {
+    font-size: 73px;
+    opacity: 0.2;
+    transform: rotate(270deg);
+    z-index: 5;
+    color: #050505;
+    white-space: nowrap;
+  }
+}
+
+.section2-slice1 {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  & p {
+    width: 88%;
+    color: #4e4e4e;
+    font-size: 21px;
+    letter-spacing: 2px;
+    font-weight: 500;
+  }
+}
+.section2-slice2 {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  & .business-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 97%;
+    background: #ffffff 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border: 1px solid #7070707e;
+    border-radius: 16px 0px 0px 16px;
+    padding: 0 39px 14px 39px;
+
+    & .business-box-head {
+      color: #050505;
+      opacity: 0.2;
+      font-size: 73px;
+      letter-spacing: 20.65px;
+      margin-bottom: 34px;
+    }
+    & .business-box-icon{
+      width: 157px;
+      height: 34px;
+      background-image: url('/LedboxPhoto/Untitled-1.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      margin-bottom: 25px;
+    }
+    & .business-box-description {
+      width: 90%;
+      letter-spacing: 2px;
+      text-align: left;
+      color: #4e4e4e;
+      font-size: 21px;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+    & .business-box-images{
+      display: flex;
+      gap: 2px;
+      cursor: pointer;
+    }
+    & .business-box-image{
+      transform: scale(1);
+      transition: all 0.9s ease;
+
+    }
+    & .business-box-image:hover{
+      transform: scale(1.1);
+      transition: all 0.9s ;
+    }
+    & .business-box-line-wrapper{
+      width: 100%;
+      padding: 36px 0;
+      height: auto;
+      & .business-box-line{
+        display: block;
+        background-color: #707070;
+        height: 1px;
+        width: 100%;
+        opacity: 0.3;
+      }
+    }
+    & .business-box-other-image-wrapper{
+        display: flex;
+        width: 60%;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px;
+        & .business-box-other-image1{
+            background-color: #062034;
+            width: 157px;
+            height: 103px;
+            background-image: url('/logo_jpg_svg/marsmarislogo.svg');
+            background-origin:content-box;
+            background-position: center;
+            border-radius: 4px;
+            
+        }
+    }
+    & .business-box-website {
+      letter-spacing: 1.71px;
+      color: #4e4e4e84;
+      text-align: left;
+    }
+  }
+}
+
+.carousel-container{
+  width: 100%;
+  padding: 100px;
+  position: relative;
+  background-color: #0000003b;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 150;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.carousel-wrapper{
+  width: 100%;
+  height: 500px;
+  background-color: white;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.closeButton{
+  position: absolute;
+  right: 15px;
+  top: -5px;
+  border: none;
+  background: transparent;
+  color: #707070;
+  height: 25px;
+  width: 25px;
+  font-size: 32px;
+}
+.slider{
+  width: 100% ;
+}
+.image-carousel{
+  width: 100%;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.prev{
+  position: absolute;
+  top: 50%;
+  left: 100px;
+  z-index: 200;
+  cursor: pointer;
+}
+.next{
+  position: absolute;
+  top: 50%;
+  right: 100px;
+  z-index: 200;
+  cursor: pointer;
+}

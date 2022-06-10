@@ -1,21 +1,37 @@
-import { Button, Col, Row } from "antd";
-import { NextPage } from "next";
-import { AppProps } from "next/app";
 import styles from "./header.module.scss";
+import { v4 } from "uuid";
+import { SetStateAction, useState } from "react";
+
+const arr: string[] = ["Home", "About Me", "Design", "Photography", "Contact"];
 
 const Header: React.FC = () => {
+  const [buttonIndex, setButtonIndex] = useState<number>(0);
+
+  const navButtonClickHandler = (index: SetStateAction<number>): void =>
+    setButtonIndex(index);
+
   return (
-    <header className={styles["header-container"]}>
-      <nav className={styles["header"]}>
+    <div className={styles["header-container"]}>
+      <div className={styles["header"]}>
         <div className={styles["header-nav-buttons"]}>
-          <button className={styles["nav-button"]}>Home</button>
-          <button className={styles["nav-button"]}>About Me</button>
-          <button className={styles["nav-button"]}>Design</button>
-          <button className={styles["nav-button"]}>Photography</button>
-          <button className={styles["nav-button"]}>Contact</button>
+          {arr.map((item, index) => (
+            <button
+              onClick={() => navButtonClickHandler(index)}
+              key={v4()}
+              className={
+                styles["nav-button"] +
+                " " +
+                (index === buttonIndex
+                  ? styles["nav-button-active"]
+                  : styles[""])
+              }
+            >
+              {item}
+            </button>
+          ))}
         </div>
-      </nav>
-    </header>
+      </div>
+    </div>
   );
 };
 
