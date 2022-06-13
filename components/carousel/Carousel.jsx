@@ -3,40 +3,75 @@ import Slider from "react-slick";
 import { v4 } from "uuid";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
 import Image from "next/image";
+import { useDispatch } from "react-redux";
+import { setCarousel, setCarousel2 } from "../../redux/reducers/reducer";
+import { useRef, useState } from "react";
 
-const Carousel = ({ arr }) => {
+const Carousel = ({ arr, index , path }) => {
+  const dispatch = useDispatch();
+  
+  const ref = useRef(null)
+
   const settings = {
-    fade: false,
-    touchMove: true,
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
     useCSS: true,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    pauseOnHover: true,
-    swipeToSlide: true,
+    arrows: false,
+    centerMode: false,
+    initialSlide: index,
+  };
+  const closeButtonHandler = () => {
+    dispatch(setCarousel(false));
+    dispatch(setCarousel2(false));
+    document.body.classList.toggle("lock");
+  };
+  const prevHandler = () => {
+    ref.current.slickPrev()
+  };
+  const nextHandler = () => {
+    ref.current.slickNext()
+
   };
   return (
-    <div className={styles["carousel-container"]}>
-      <div>
+    <>
+      <div className={styles["carousel-container"]}>
+        <div className={styles["carousel-wrapper"]}>
+          <button
+            onClick={closeButtonHandler}
+            className={styles["closeButton"]}
+          >
+            x
+          </button>
+          <Slider ref={ref} {...settings} className={styles["slider"]}>
+            {arr.map((item) => {
+              return (
+                <div key={v4()} className={styles["image-carousel"]}>
+                  <Image
+                    src={"/" + path + "/" + item}
+                    width={277}
+                    height={390}
+                    alt="iamge"
+                  />
+                </div>
+              );
+            })}
 
-      <div className={styles["carousel-wrapper"]}>
-        <Slider {...settings} className={styles["carousel"]}>
-          {arr.map((item, index) => {
-            return (
-              <Image
-                key={v4()}
-                src={"/LedboxPhoto/" + item}
-                width={77}
-                height={77}
-                alt="iamge"
-              />
-            );
-          })}
-        </Slider>
+          </Slider>
+          <span onClick={prevHandler} className={styles["prev"]}>
+            {" "}
+            prev{" "}
+          </span>
+          <span onClick={nextHandler} className={styles["next"]}>
+            {" "}
+            next{" "}
+          </span>
+        </div>
       </div>
-      </div>
-    </div>
+    </>
   );
 };
 

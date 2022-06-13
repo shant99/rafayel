@@ -1,10 +1,13 @@
 import Image from "next/image";
 import styles from "./section2.module.scss";
 import { v4 } from "uuid";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Carousel from "../carousel/Carousel";
+import { setCarousel } from "../../redux/reducers/reducer";
+import { useDispatch, useSelector } from "react-redux";
 
 let arr = [
   "IMG_1906.JPG",
@@ -16,77 +19,24 @@ let arr = [
   "IMG_4946.JPG",
   "IMG_4948.jpg",
 ];
-const Carousel = ({ arr , index}:any) => {
-  const settings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    useCSS: true,
-    arrows: false,
-    centerMode: false ,
-    initialSlide: index
-  };
-  return (
-      <Slider {...settings} className={styles['slider']}>
-      {arr.map((item: any) => {
-                return (
-                  <div  key={v4()} className={styles["image-carousel"]}>
 
-                    <Image
-                     
-                      src={"/LedboxPhoto/" + item}
-                      width={277}
-                      height={390}
-                      alt="iamge"
-                      
-                    />
-                  </div>
-                );
-              })}
-      </Slider>
-  );
-}
-
-
-const Section2: React.FC = ({ d }: any) => {
-  const [carouselContainer, setCarouselContainer] = useState(false);
+const Section2: React.FC = () => {
   const [indexImage , setIndexImage] = useState(0)
+  const dispatch = useDispatch();
+  const {carousel} = useSelector((state:any) => state.reducer)
 
   const imageClickHandler = (index: any) => {
-    setCarouselContainer(true);
+    dispatch(setCarousel(true));
     setIndexImage(index)
     document.body.classList.toggle("lock");
   };
 
-  const closeButtonHandler = () => {
-    setCarouselContainer(false);
-    document.body.classList.toggle("lock");
-  };
-
-  const prevHandler = () => setIndexImage(prev => prev + 1)
-
 
   return (
-    <section className={styles["section2-container"]}>
-      {carouselContainer ? (
-        <div className={styles["carousel-container"]}>
-          <div className={styles["carousel-wrapper"]}>
-            <button
-              onClick={closeButtonHandler}
-              className={styles["closeButton"]}
-            >
-              x
-            </button>
-            <Carousel arr={arr} index={indexImage} />
-            <span onClick={prevHandler} className={styles["prev"]}> prev </span>
-            <span className={styles["next"]}>   next </span>
-          </div>
-        </div>
-      ) : (
-        ""
-      )}
+    <section className={styles["section2-container"]} >
+      {
+        carousel ? <Carousel  arr={arr} index={indexImage} path={'LedboxPhoto'}/>: ''
+      }
 
       <div className={styles["section2"]}>
         <div className={styles["section2-aside"]}>

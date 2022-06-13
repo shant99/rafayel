@@ -99,6 +99,7 @@
     & .business-box-image{
       transform: scale(1);
       transition: all 0.9s ease;
+      object-fit: cover;
 
     }
     & .business-box-image:hover{

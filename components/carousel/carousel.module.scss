@@ -1,6 +1,14 @@
-.carousel-container{
+
+.image-carousel{
     width: 100%;
-    padding: 100px;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  .carousel-container{
+    width: 100%;
+    padding: 0 100px;
     position: relative;
     background-color: #0000003b;
     position: fixed;
@@ -12,12 +20,55 @@
     display: flex;
     justify-content: center;
     align-items: center;
-}
-.carousel-wrapper{
+  }
+  .carousel-wrapper{
     width: 100%;
+    height: auto;
+    padding: 50px 100px;
     background-color: white;
-    border: 1px solid red;
-}
-.carousel{
-    width: 80%;
-}
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 50;
+  
+  }
+  .closeButton{
+    position: absolute;
+    right: 15px;
+    top: -5px;
+    border: none;
+    background: transparent;
+    color: #707070;
+    height: 25px;
+    width: 25px;
+    font-size: 32px;
+  }
+  .slider{
+    width: 100% ;
+  }
+  .image-carousel{
+    width: 100%;
+    height: auto;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+
+  }
+  
+  .prev{
+    position: absolute;
+    top: 50%;
+    left: 100px;
+    z-index: 200;
+    cursor: pointer;
+  }
+  .next{
+    position: absolute;
+    top: 50%;
+    right: 100px;
+    z-index: 200;
+    cursor: pointer;
+    
+  }
+  

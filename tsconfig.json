@@ -15,6 +15,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/carousel/Carousel.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/carousel/Carousel.jsx", "components/section4/Section4.jsx"],
   "exclude": ["node_modules"]
 }
