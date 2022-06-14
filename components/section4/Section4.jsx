@@ -101,7 +101,6 @@ const Section4 = () => {
 
         {
           <Masonry
-          breakpointCols={3}
           breakpointCols={breakpointColumnsObj}
           className={styles["my-masonry-grid"]}
           columnClassName={styles["my-masonry-grid_column"]}>
