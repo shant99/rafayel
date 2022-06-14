@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable react/jsx-no-duplicate-props */
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
@@ -7,6 +9,7 @@ import Carousel from "../carousel/Carousel";
 import { useDispatch, useSelector } from "react-redux";
 import { setCarousel, setCarousel2 } from "../../redux/reducers/reducer";
 import { v4 } from "uuid";
+import Masonry from 'react-masonry-css'
 
 
 const arr2 = [
@@ -72,6 +75,13 @@ const Section4 = () => {
   const {carousel2} = useSelector((state) => state.reducer)
   const dispatch = useDispatch();
 
+  const breakpointColumnsObj = {
+    default: 10,
+    1100: 7,
+    700: 5,
+    500: 4
+  };
+
   const imageHandler = (index) => {
     setIndexImage(index)
     dispatch(setCarousel2(true));
@@ -88,19 +98,30 @@ const Section4 = () => {
         <div className={styles["section4-aside"]}>
           <h2>PHOTOGRAPHY</h2>
         </div>
-        {arr2.map((item, index) => {
+
+        {
+          <Masonry
+          breakpointCols={3}
+          breakpointCols={breakpointColumnsObj}
+          className={styles["my-masonry-grid"]}
+          columnClassName={styles["my-masonry-grid_column"]}>
+                  {arr2.map((item, index) => {
           return (
             <div  key={v4()} className={styles['image-wrapper']}>
-              <Image
+           
+              <img
                 onClick={()=> imageHandler(index)}
-                layout='fill'
                 src={"/photography/" + item}
+                data-src={"/photography/" + item}
                 alt="image"
                 className={styles['image']}
+           
               />
             </div>
           );
         })}
+        </Masonry>
+        }
 
       </div>
     </section>

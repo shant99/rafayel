@@ -50,10 +50,9 @@ const Carousel = ({ arr, index , path }) => {
             {arr.map((item) => {
               return (
                 <div key={v4()} className={styles["image-carousel"]}>
-                  <Image
+                  <img
+                  className={styles["image"]}
                     src={"/" + path + "/" + item}
-                    width={277}
-                    height={390}
                     alt="iamge"
                   />
                 </div>

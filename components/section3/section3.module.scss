@@ -22,6 +22,7 @@
     bottom: 0;
     height: auto;
     border-right: 1px solid #7070703c;
+    background-color: white;
     width: 5%;
     display: flex;
     align-items: center;
@@ -33,9 +34,11 @@
       opacity: 0.8;
       transform: rotate(270deg);
       z-index: 5;
-      color: #BABABA;
-      white-space: nowrap;
-      letter-spacing: 4.15px;
+      color: white;
+    white-space: nowrap;
+    letter-spacing: 4.15px;
+    text-shadow: 1px 0 1px #003869, 0 1px 1px #003869, -1px 0 1px #003869,
+      0 -1px 1px #003869;
     }
   }
 
