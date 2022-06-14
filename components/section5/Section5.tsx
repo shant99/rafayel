@@ -1,9 +1,18 @@
 import Image from "next/image";
+import { useEffect, useRef } from "react";
+import { useDispatch } from "react-redux";
+import { setAboutMe, setContact } from "../../redux/reducers/reducer";
 import styles from "./section5.module.scss";
 
 const Section5 = () => {
+  const dispatch = useDispatch()
+  const ref:any = useRef()
+  useEffect(()=>{
+    let y: any = ref?.current?.offsetTop
+    dispatch(setContact(y))
+  })
   return (
-    <section className={styles["section5-container"]}>
+    <section className={styles["section5-container"]} ref={ref}>
       <div className={styles["section5"]}>
         <div className={styles["section5-aside"]}>
           <h2>CONTACT</h2>

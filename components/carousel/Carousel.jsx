@@ -12,7 +12,7 @@ const Carousel = ({ arr, index , path }) => {
   const dispatch = useDispatch();
   
   const ref = useRef(null)
-
+  console.log(arr)
   const settings = {
     dots: false,
     infinite: true,
@@ -61,12 +61,10 @@ const Carousel = ({ arr, index , path }) => {
 
           </Slider>
           <span onClick={prevHandler} className={styles["prev"]}>
-            {" "}
-            prev{" "}
+          ➜
           </span>
           <span onClick={nextHandler} className={styles["next"]}>
-            {" "}
-            next{" "}
+          ➜
           </span>
         </div>
       </div>

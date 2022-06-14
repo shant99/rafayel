@@ -1,13 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/jsx-no-duplicate-props */
-import Image from "next/image";
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+
+
+import { useEffect, useRef, useState } from "react";
 import styles from "./section4.module.scss";
-import StackGrid from "react-stack-grid";
+
 import Carousel from "../carousel/Carousel";
 import { useDispatch, useSelector } from "react-redux";
-import { setCarousel, setCarousel2 } from "../../redux/reducers/reducer";
+import {  setCarousel2, setPhotography } from "../../redux/reducers/reducer";
 import { v4 } from "uuid";
 import Masonry from 'react-masonry-css'
 
@@ -73,7 +73,8 @@ const arr2 = [
 const Section4 = () => {
   const [indexImage , setIndexImage] = useState(0)
   const {carousel2} = useSelector((state) => state.reducer)
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
+  const ref = useRef()
 
   const breakpointColumnsObj = {
     default: 10,
@@ -88,9 +89,13 @@ const Section4 = () => {
     document.body.classList.toggle("lock");
 
   }
- 
+
+  useEffect(()=>{
+    let y = ref?.current?.offsetTop
+    dispatch(setPhotography(y))
+  })
   return (
-    <section className={styles["section4-container"]}>
+    <section className={styles["section4-container"]} ref={ref}>
             {
         carousel2 ? <Carousel arr={arr2} index={indexImage} path={'photography'}/>: ''
       }

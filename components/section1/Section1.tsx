@@ -1,9 +1,18 @@
 import Image from "next/image";
+import { useEffect, useRef } from "react";
+import { useDispatch } from "react-redux";
+import { setAboutMe } from "../../redux/reducers/reducer";
 import styles from "./section1.module.scss";
 
 const Section1 = () => {
+  const dispatch = useDispatch()
+  const ref: any = useRef()
+  useEffect(()=>{
+    let y: any = ref?.current?.offsetTop
+    dispatch(setAboutMe(y))
+  })
   return (
-    <section className={styles["section1-container"]}>
+    <section className={styles["section1-container"]} ref={ref}>
       <div className={styles["section1"]}>
         <div className={styles["section1-aside"]}>
           {" "}
