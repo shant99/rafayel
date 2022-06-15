@@ -2,6 +2,7 @@ import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { setAboutMe, setContact } from "../../redux/reducers/reducer";
+import Footer from "../footer/Footer";
 import styles from "./section5.module.scss";
 
 const Section5 = () => {
@@ -20,7 +21,7 @@ const Section5 = () => {
         <div className={styles["form-wrapper"]}>
           <div className={styles["avatar-wrapper"]}>
             <Image
-              src={"/image.jpeg"}
+              src={"/icon2/rafael_photo_contact page.svg"}
               width={100}
               height={100}
               alt="avatar"
@@ -41,19 +42,18 @@ const Section5 = () => {
               placeholder="Subject"
               className={styles["input"]}
             />
-            {/* <input
+                        <input
               type="text"
               placeholder="Message"
-              className={styles["input"]}
-            /> */}
-            <textarea placeholder="Message" className={styles["input"]} name="w3review" rows={4} cols={50}>
-      
-            </textarea>
+              style={{height: '194px'}}
+              className={styles["input-message"]}
+            />
             <button type="submit" className={styles["button-send"]}>
               Send
             </button>
           </form>
         </div>
+        <Footer />
       </div>
     </section>
   );

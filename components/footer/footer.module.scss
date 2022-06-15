@@ -6,7 +6,10 @@
     justify-content: center;
     align-items: center;
     background-color: #005B7C;
-
+    flex: 0 0 auto;
+    position: absolute;
+    bottom: 0;
+    z-index: 10000;
 }
 .footer{
     display: flex;

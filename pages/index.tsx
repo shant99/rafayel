@@ -28,7 +28,7 @@ const Home: NextPage = () => {
         <Section3 />
         <Section4 />
         <Section5 />
-        <Footer />
+       
       </div>
     </Provider>
   );
