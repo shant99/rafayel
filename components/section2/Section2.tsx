@@ -115,7 +115,7 @@ const Section2: React.FC = () => {
               </div>
               <a
                 href="www.ledbox.am"
-                // target="_blank"
+                target="_blank"
                 className={styles["business-box-website"]}
               >
   
