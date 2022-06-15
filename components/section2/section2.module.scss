@@ -82,7 +82,9 @@
   width: 50%;
   .marsmaris-wrapper{
     width: 100%;
-    margin-bottom: 16px !important;
+
+    height: 37px;
+    width: 180px;
   }
   .business-box-slice2-footer{
     display: flex;
@@ -97,10 +99,6 @@
 .business-box-icon {
   width: 157px;
   height: 34px;
-  background-image: url("/icon2/ledbox logo_about me_page.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  margin-bottom: 25px;
 }
 .business-box-description {
   width: 100%;

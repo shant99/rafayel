@@ -115,10 +115,10 @@ const Section2: React.FC = () => {
               </div>
               <a
                 href="www.ledbox.am"
-                target="_blank"
+                // target="_blank"
                 className={styles["business-box-website"]}
               >
-                {" "}
+  
                 www.ledbox.am
               </a>
             </div>
@@ -127,7 +127,7 @@ const Section2: React.FC = () => {
                 <Image
                   src="/icon2/marsmaris_logo_for_about me_page.svg"
                   width={180}
-                  height={39}
+                  height={38}
                   className={styles["marsmaris"]}
                   alt="ss"
                 />
