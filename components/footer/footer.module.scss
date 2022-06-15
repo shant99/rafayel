@@ -1,11 +1,11 @@
 .footer-container{
     width: 100%;
-    height: 150px;
+    height: 138px;
     padding: 30px 30px 40px 30px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #005B7C;
+    background-color: #1161BA;
     flex: 0 0 auto;
     position: absolute;
     bottom: 0;
@@ -14,4 +14,17 @@
 .footer{
     display: flex;
     gap: 34px;
+}
+.footer-link{
+    object-fit: cover;
+    border-radius: 100%;
+}
+.footer-image{
+    cursor: pointer;
+    object-fit: cover;
+}
+.footer-image:hover{
+    transform: scale(1.04);
+    object-fit: cover;
+
 }

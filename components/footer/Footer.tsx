@@ -11,12 +11,13 @@ const Footer = () => {
       <div className={styles["footer"]}>
         {arr.map((item) => {
           return (
-            <Link href="/" key={v4()}>
+            <Link href="/" key={v4()} className={styles["footer-link"]}>
               <Image
                 width={42}
                 height={42}
                 src={"/icon/"+item}
                 alt="image"
+                className={styles["footer-image"]}
               />
             </Link>
           );

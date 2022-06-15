@@ -8,6 +8,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Carousel from "../carousel/Carousel";
 import { setAboutMe, setCarousel } from "../../redux/reducers/reducer";
 import { useDispatch, useSelector } from "react-redux";
+import Link from "next/link";
 
 let arr = [
   "IMG_1906.JPG",
@@ -86,7 +87,12 @@ const Section2: React.FC = () => {
         <div className={styles["section2-slice2"]}>
           <div className={styles["business-box"]}>
             <div className={styles["business-box-slice1"]}>
-              <div className={styles["business-box-icon"]}></div>
+              <div className={styles["business-box-icon"]}>
+                <Image                       src={'/icon2/ledbox logo_about me_page.svg'}
+                      width={157}
+                      height={34}
+                      alt="iamge" />
+              </div>
               <p className={styles["business-box-description"]}>
                 Ledbox was launched in March 2021. Ledbox offers high quality
                 light boxes, dimensional letters, lighting panels and various
@@ -107,7 +113,14 @@ const Section2: React.FC = () => {
                   );
                 })}
               </div>
-              <p className={styles["business-box-website"]}>www.ledbox.am</p>
+              <a
+                href="www.ledbox.am"
+                target="_blank"
+                className={styles["business-box-website"]}
+              >
+                {" "}
+                www.ledbox.am
+              </a>
             </div>
             <div className={styles["business-box-slice2"]}>
               <div className={styles["marsmaris-wrapper"]}>
@@ -126,13 +139,13 @@ const Section2: React.FC = () => {
               </p>
               <div className={styles["business-box-slice2-footer"]}>
                 <div className={styles["loading-icon-wrapper"]}>
-                <Image
-                  src="/icon2/loading_icon.svg"
-                  width={77}
-                  height={77}
-                  className={styles["loading-icon"]}
-                  alt="ss"
-                />
+                  <Image
+                    src="/icon2/loading_icon.svg"
+                    width={54}
+                    height={54}
+                    className={styles["loading-icon"]}
+                    alt="ss"
+                  />
                 </div>
                 <p className={styles["business-box-website"]}>
                   www.marsmaris.com
