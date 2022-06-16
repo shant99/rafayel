@@ -2,13 +2,12 @@ import Image from "next/image";
 import styles from "./section2.module.scss";
 import { v4 } from "uuid";
 import { useEffect, useRef, useState } from "react";
-import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Carousel from "../carousel/Carousel";
 import { setAboutMe, setCarousel } from "../../redux/reducers/reducer";
 import { useDispatch, useSelector } from "react-redux";
-import Link from "next/link";
+import sameStyles from '../../styles/same.module.scss'
 
 let arr = [
   "IMG_1906.JPG",
@@ -47,7 +46,7 @@ const Section2: React.FC = () => {
       )}
 
       <div className={styles["section2"]}>
-        <div className={styles["section2-aside"]}>
+        <div className={sameStyles["aside"]}>
           <h2>ABOUT ME</h2>
         </div>
         <div className={styles["section2-slice1"]}>
@@ -88,10 +87,12 @@ const Section2: React.FC = () => {
           <div className={styles["business-box"]}>
             <div className={styles["business-box-slice1"]}>
               <div className={styles["business-box-icon"]}>
-                <Image                       src={'/icon2/ledbox logo_about me_page.svg'}
-                      width={157}
-                      height={34}
-                      alt="iamge" />
+                <Image
+                  src={"/icon2/ledbox logo_about me_page.svg"}
+                  width={157}
+                  height={34}
+                  alt="iamge"
+                />
               </div>
               <p className={styles["business-box-description"]}>
                 Ledbox was launched in March 2021. Ledbox offers high quality
@@ -114,11 +115,11 @@ const Section2: React.FC = () => {
                 })}
               </div>
               <a
-                href="www.ledbox.am"
+                rel="noreferrer"
+                href="https://www.ledbox.am"
                 target="_blank"
                 className={styles["business-box-website"]}
               >
-  
                 www.ledbox.am
               </a>
             </div>
@@ -158,11 +159,4 @@ const Section2: React.FC = () => {
     </section>
   );
 };
-export async function getServerSideProps() {
-  let d = fetch("/icon").then((data) => data);
-
-  return {
-    props: { d }, // will be passed to the page component as props
-  };
-}
 export default Section2;

@@ -3,6 +3,7 @@ import { v4 } from "uuid";
 import { SetStateAction, useState } from "react";
 import { useSelector } from "react-redux";
 
+
 const arr: string[] = ["Home", "About Me", "Design", "Photography", "Contact"];
 
 const Header: React.FC = () => {

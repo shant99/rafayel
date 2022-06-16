@@ -1,15 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/jsx-no-duplicate-props */
-
-
 import { useEffect, useRef, useState } from "react";
 import styles from "./section4.module.scss";
-
 import Carousel from "../carousel/Carousel";
 import { useDispatch, useSelector } from "react-redux";
 import {  setCarousel2, setPhotography } from "../../redux/reducers/reducer";
 import { v4 } from "uuid";
 import Masonry from 'react-masonry-css'
+import sameStyles from '../../styles/same.module.scss'
 
 
 const arr2 = [
@@ -100,7 +98,7 @@ const Section4 = () => {
         carousel2 ? <Carousel arr={arr2} index={indexImage} path={'photography'}/>: ''
       }
       <div className={styles["section4"]}>
-        <div className={styles["section4-aside"]}>
+        <div className={sameStyles["aside"] + ' ' + styles['section4-aside']}>
           <h2>PHOTOGRAPHY</h2>
         </div>
 

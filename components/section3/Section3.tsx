@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { v4 } from "uuid";
 import { setDesign } from "../../redux/reducers/reducer";
 import styles from "./section3.module.scss";
+import sameStyles from '../../styles/same.module.scss'
 
 const arr = ["IMG_4898.JPG", "venlogo.svg", "marsmarislogo.svg", "new.jpg"];
 
@@ -20,7 +21,7 @@ const Section3 = () => {
   return (
     <section className={styles["section3-container"]} ref={ref}>
       <div className={styles["section3"]}>
-        <div className={styles["section3-aside"]}>
+        <div className={sameStyles["aside"] + ' ' + styles} >
           <h2>DESIGN</h2>
         </div>
         <div className={styles["slice1-wrapper"]}>

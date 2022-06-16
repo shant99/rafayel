@@ -9,7 +9,7 @@
     flex: 0 0 auto;
     position: absolute;
     bottom: 0;
-    z-index: 10000;
+    z-index: 9000;
 }
 .footer{
     display: flex;
@@ -26,5 +26,15 @@
 .footer-image:hover{
     transform: scale(1.04);
     object-fit: cover;
+}
 
+@media screen and (min-width: 993px) and (max-width: 1200px) {
+}
+@media screen and (min-width: 769px) and (max-width: 992px) {
+    .footer-container{
+        height: 80px;
+        padding: 15px ;
+    }
+}
+@media screen and (max-width: 768px) {
 }
