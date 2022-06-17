@@ -1,8 +1,7 @@
 import styles from "./header.module.scss";
 import { v4 } from "uuid";
-import { SetStateAction, useState } from "react";
-import { useSelector } from "react-redux";
-
+import { SetStateAction, useCallback, useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 const arr: string[] = ["Home", "About Me", "Design", "Photography", "Contact"];
 
@@ -12,37 +11,44 @@ const Header: React.FC = () => {
   const { home, aboutMe, design, photography, contact } = useSelector(
     (state: any) => state.reducer
   );
+  const dispatch = useDispatch();
+  const [obs, setObs] = useState({});
+  const [scroll, setScroll] = useState(0);
 
   const navButtonClickHandler = (
     index: SetStateAction<number>,
     item: string
   ): void => {
+    console.log(scroll , aboutMe.height , 'scroll , aboutME')
     setButtonIndex(index);
+    setHamburger(false)
     let itemValue = item.toLowerCase().replace(/\s/g, "");
     if (home.name === itemValue) {
+      setScroll(home.height)
       window.scroll({
         behavior: "smooth",
         top: home.height,
       });
     } else if (aboutMe.name === itemValue) {
+      setScroll(aboutMe.height - 60)
       window.scroll({
         behavior: "smooth",
-        top: aboutMe.height - 60,
+        top: aboutMe.height ,
       });
     } else if (design.name === itemValue) {
       window.scroll({
         behavior: "smooth",
-        top: design.height - 60,
+        top: design.height - 60 ,
       });
     } else if (photography.name === itemValue) {
       window.scroll({
         behavior: "smooth",
-        top: photography.height - 60,
+        top: photography.height ,
       });
     } else if (contact.name === itemValue) {
       window.scroll({
         behavior: "smooth",
-        top: contact.height - 60,
+        top: contact.height ,
       });
     }
   };
@@ -56,6 +62,24 @@ const Header: React.FC = () => {
     : styles[""];
 
   const menuActive = hamburger ? styles["menu-active"] : styles[""];
+  if (typeof window !== "undefined") {
+    // window.addEventListener("scroll", (e) => {
+    //   setScroll(window.scrollY);
+    // });
+  }
+  useEffect(() => {
+    // if (scroll <= aboutMe.height) {
+    //   setButtonIndex(0);
+    // } else if (scroll >= (aboutMe.height ) && scroll <= design.height) {
+    //   setButtonIndex(1);
+    //  } else if(scroll >= (design.height )&& scroll <= photography.height){
+    //  setButtonIndex(2)
+    // }else if(scroll >= photography.height && scroll <= contact.height){
+    //   setButtonIndex(3)
+    // }else if(scroll >= contact.height){
+    //   setButtonIndex(4)
+    // }
+  }, [aboutMe.height, contact.height, design.height, photography.height, scroll]);
 
   return (
     <div className={styles["header-container"]}>

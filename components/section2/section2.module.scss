@@ -153,4 +153,37 @@
   }
 }
 @media screen and (max-width: 768px) {
+  .section2{
+    padding: 15px;
+    align-items: flex-start;
+  }
+  .section2-slice1 {
+    width: 100%;
+    padding-left: 0;
+    margin-bottom: 23px;
+    & p {
+      width: 100%;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+  }
+  .section2-slice2 {
+    width: 100%;
+  }
+  .business-box{
+    flex-direction: column;
+    width: 100%;
+    padding: 15px;
+  }
+  .business-box-slice1{
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  .business-box-slice2{
+    width: 100%;
+    padding: 0;
+  }
+  .business-box-description{
+    font-size: 16px;
+  }
 }

@@ -2,13 +2,11 @@
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
-import { v4 } from "uuid";
 import { setDesign } from "../../redux/reducers/reducer";
 import styles from "./section3.module.scss";
 import sameStyles from '../../styles/same.module.scss'
 
 const arr = ["IMG_4898.JPG", "venlogo.svg", "marsmarislogo.svg", "new.jpg"];
-
 const arr2 = ["Home–3.jpg", "Home–20.jpg", "IMG_3905.JPG", "Web 1920–1.jpg"];
 
 const Section3 = () => {

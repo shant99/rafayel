@@ -86,6 +86,10 @@
   padding: 18px;
   width: 100%;
 }
+.button-send:hover{
+  background: transparent linear-gradient(180deg, #0ca1d2 0%, #1473e1 100%) 0%
+    0% no-repeat padding-box;
+}
 
 @media screen and (min-width: 993px) and (max-width: 1200px) {
 }
@@ -97,4 +101,17 @@
   }
 }
 @media screen and (max-width: 768px) {
+  .section5{
+    padding: 0px;
+    display: block;
+  }
+  .form-wrapper {
+    padding:15px 15px 100px 15px ;
+    background: transparent;
+    box-shadow: none;
+  }
+  .form {
+    width: 100%;
+    gap: 10px;
+  }
 }

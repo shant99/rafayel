@@ -45,6 +45,7 @@ const Carousel = ({ arr, index , path }) => {
             className={styles["closeButton"]}
           >
             x
+            {/* <Image src='/icons/x.svg' width={30} height={30} alt='prev'/> */}
           </button>
           <Slider ref={ref} {...settings} className={styles["slider"]}>
             {arr.map((item) => {
@@ -61,10 +62,10 @@ const Carousel = ({ arr, index , path }) => {
 
           </Slider>
           <span onClick={prevHandler} className={styles["prev"]}>
-          ➜
+          <Image src='/icons/icon left.svg' width={30} height={30} alt='prev'/>
           </span>
           <span onClick={nextHandler} className={styles["next"]}>
-          ➜
+          <Image src='/icons/icon right.svg' width={30} height={30} alt='next'/>
           </span>
         </div>
       </div>

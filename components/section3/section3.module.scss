@@ -49,6 +49,8 @@
     margin-bottom: 20px;
     position: relative;
     .slice1-row1-image-wrapper {
+      transform: translatey(0px);
+      animation: float 6s ease-in-out infinite;
       padding: 11px 34px;
       display: flex;
       position: relative;
@@ -67,6 +69,8 @@
     margin-bottom: 20px;
     position: relative;
     .slice1-row2-image-wrapper {
+      transform: translatey(0px);
+      animation: float 6s ease-in-out infinite;
       position: relative;
       padding: 11px 34px;
       display: flex;
@@ -85,6 +89,8 @@
     margin-bottom: 20px;
     position: relative;
     .slice1-row3-image-wrapper {
+      transform: translatey(0px);
+      animation: float 6s ease-in-out infinite;
       position: relative;
       padding: 14px 83px;
       display: flex;
@@ -103,6 +109,8 @@
     margin-bottom: 20px;
     position: relative;
     .slice1-row4-image-wrapper {
+      transform: translatey(0px);
+      animation: float 6s ease-in-out infinite;
       position: relative;
       padding: 14px 83px;
       display: flex;
@@ -114,7 +122,20 @@
     }
   }
 }
-
+@keyframes float {
+  0% {
+    box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+    transform: translatey(0px);
+  }
+  50% {
+    box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+    transform: translatey(-20px);
+  }
+  100% {
+    box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+    transform: translatey(0px);
+  }
+}
 .slice2-wrapper {
   position: relative;
   margin-left: 32px;
@@ -201,4 +222,57 @@
   }
 }
 @media screen and (max-width: 768px) {
+  .section3{
+    padding: 30px 15px;
+    flex-direction: column;
+  }
+  .slice1-wrapper{
+    width: 100%;
+    margin-bottom: 25px;
+    .slice1 {
+      .slice1-head-wrapper {
+        top: -3px;
+        margin-bottom: 10px;
+        margin-top: 5px;
+        position: relative;
+        .slice1-head {
+        position: relative;
+          font: normal normal bold 25px/10px Malayalam Sangam MN;
+          
+        }
+      }
+    }
+    .slice1-row1 {
+      gap: 15px;
+      margin-bottom: 10px;
+    }
+    .slice1-row2 {
+      gap: 15px ;
+      margin-bottom: 10px;
+    }
+    .slice1-row3 {
+      gap: 15px;
+      margin-bottom: 10px;
+    }
+  }
+  .slice2-wrapper{
+    margin-left: 0;
+    width: 100%;
+    padding: 0px 15px;
+    .slice2 {
+      .slice2-head-wrapper {
+        top: 0px;
+        margin-bottom: 10px;
+        .slice2-head {
+          font: normal normal bold 25px/30px Malayalam Sangam MN;
+          margin-top: -10px;
+        }
+      }
+    }
+  }
+  .slice2-images {
+    gap: 15px;
+    margin-bottom: 15px;
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
