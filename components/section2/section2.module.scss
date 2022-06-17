@@ -17,10 +17,9 @@
 
 .section2-slice1 {
   width: 100%;
-  padding-left: 10%;
+  padding:0 100px;
   margin-bottom: 43px;
   & p {
-    width: 88%;
     color: #4e4e4e;
     font-size: 21px;
     letter-spacing: 2px;
@@ -30,7 +29,7 @@
   }
 }
 .section2-slice2 {
-  width: 80%;
+  padding:0 100px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -40,7 +39,6 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  width: 97%;
   padding: 37px 34px;
   background: #ffffffe8 0% 0% no-repeat padding-box;
   border-radius: 10px;
@@ -159,7 +157,7 @@
   }
   .section2-slice1 {
     width: 100%;
-    padding-left: 0;
+    padding: 0;
     margin-bottom: 23px;
     & p {
       width: 100%;
@@ -169,6 +167,7 @@
   }
   .section2-slice2 {
     width: 100%;
+    padding: 0;
   }
   .business-box{
     flex-direction: column;

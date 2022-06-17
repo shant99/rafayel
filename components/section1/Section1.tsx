@@ -25,7 +25,7 @@ const Section1 = () => {
         <div className={styles["section1-slice2"]}>
           <div className={styles["section1-x"]}></div>
           <h2 className={styles["section1-head"]} >
-            Im Rafayel Yeranosyan,   
+            I am Rafayel Yeranosyan,   
           </h2> <br></br>
           <h2 className={styles["section1-head"]} >
             UI/UX Designer and Photographer   

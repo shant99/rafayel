@@ -28,9 +28,27 @@
 .image {
   width: 358px;
   height: 358px;
+  background-size: contain;
   background-image: url("/icon2/rafayel_photo_home page.svg");
   border-radius: 100%;
   background-position: center;
+  transform: translatey(0px);
+  animation: float 4s ease-in-out ;
+  box-shadow: 0 5px 10px 0px rgba(0,0,0,0.4);
+}
+@keyframes float {
+  0% {
+    box-shadow: 0 5px 10px 0px rgba(0,0,0,0.4);
+    transform: translatey(0px);
+  }
+  50% {
+    box-shadow: 0 12px 10px 0px rgba(0,0,0,0.1);
+    transform: translatey(-10px);
+  }
+  100% {
+    box-shadow: 0 5px 10px 0px rgba(0,0,0,0.4);
+    transform: translatey(0px);
+  }
 }
 
 .section1-slice2 {
@@ -153,7 +171,7 @@
   .section1-slice1{
     width: 100%;
     height: auto;
-    padding: 50px;
+    padding: 20px;
     justify-content: center;
   }
   .section1-slice2{
@@ -201,8 +219,10 @@
   .image {
     width: 158px;
     height: 158px;
-    background-size: contain;
+    
+    
   }
+  
   .section1-slice2{
     width: 100%;
     height: auto;

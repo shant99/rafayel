@@ -78,7 +78,7 @@ const Section4 = () => {
     default: 10,
     1100: 7,
     700: 5,
-    500: 4
+    500: 2
   };
 
   const imageHandler = (index) => {
