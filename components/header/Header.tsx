@@ -41,7 +41,7 @@ const Header: React.FC = () => {
     } else if (aboutMe.name === itemValue) {
       window.scroll({
         behavior: "smooth",
-        top: aboutMe.height - 60,
+        top: aboutMe.height + 10,
       });
     } else if (design.name === itemValue) {
       window.scroll({
