@@ -11,7 +11,8 @@ const Footer = () => {
       <div className={styles["footer"]}>
         {arr.map((item) => {
           return (
-            <Link href="/" key={v4()} className={styles["footer-link"]}>
+            // eslint-disable-next-line @next/next/no-html-link-for-pages
+            <a href="/" key={v4()} className={styles["footer-link"]}>
               <Image
                 width={42}
                 height={42}
@@ -19,7 +20,7 @@ const Footer = () => {
                 alt="image"
                 className={styles["footer-image"]}
               />
-            </Link>
+            </a>
           );
         })}
       </div>

@@ -8,7 +8,7 @@
 .section5 {
   width: 100%;
   background-color: #e3e3e3;
-  padding: 0  10%;
+  padding: 0  100px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19,7 +19,7 @@
   background-color: white;
 }
 .form-wrapper {
-  padding:0  15% 170px 15%;
+  padding:0  100px 170px 100px;
   position: static;
   background: #1160ba6e 0% 0% no-repeat padding-box;
   border-radius: 50% ;
@@ -46,7 +46,7 @@
 
 .name {
   color: #ffffff;
-  font-size: 21px;
+  font-size: 18px;
   letter-spacing: 2px;
   text-align: center;
   margin-bottom: 18px;
@@ -57,23 +57,22 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 25px;
-  width: 600px;
+  gap: 14px;
+  width: 340px;
 }
 
 .input {
   background: #ffffff 0% 0% no-repeat padding-box;
   box-shadow: 0px 3px 6px #00000029;
-  border-radius: 10px;
+  border-radius: 4px;
   border: none;
   width: 100%;
-  padding: 21px;
+  padding: 8px 12px;
 }
 .input::placeholder {
-  font-size: 20px;
+  font-size: 16px;
   color: #a89e9ed9;
-  letter-spacing: 2.6px;
-  font-weight: 700;
+  font-weight: 500;
 }
 .button-send {
   background: transparent linear-gradient(180deg, #008cba 0%, #086add 100%) 0%
@@ -82,8 +81,8 @@
   border-radius: 2px;
   border: none;
   color: #ffffff;
-  font-size: 22px;
-  padding: 18px;
+  font-size: 16px;
+  padding: 8px 10px;
   width: 100%;
 }
 .button-send:hover{

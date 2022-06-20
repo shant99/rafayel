@@ -23,6 +23,11 @@ const initialState = {
     name: "contact",
     height: 0,
   },
+  homeIsVisible: false ,
+  aboutMeIsVisible: false , 
+  designIsVisible: false ,
+  photographyIsVisible: false ,
+  contactIsVisible: false
 };
 
 export let asyncFunction = createAsyncThunk(
@@ -62,6 +67,21 @@ const reducer = createSlice({
     setContact: (state, action) => {
       state.contact.height = action.payload;
     },
+    setHomeIsVisible: (state , action) => {
+      state.homeIsVisible = action.payload
+    } ,
+    setAboutMeIsVisible: (state , action) => {
+      state.aboutMeIsVisible = action.payload
+    }  , 
+    setDesignIsVisible: (state , action) => {
+      state.designIsVisible = action.payload
+    } ,
+    setPhotographyIsVisible(state , action ){
+      state.photographyIsVisible = action.payload
+    },
+    setContactIsVisible(state , action ){
+      state.contactIsVisible = action.payload
+    }
   },
 });
 
@@ -73,5 +93,10 @@ export let {
   setDesign,
   setPhotography,
   setContact,
+  setHomeIsVisible , 
+  setAboutMeIsVisible , 
+  setDesignIsVisible , 
+  setPhotographyIsVisible , 
+  setContactIsVisible
 } = reducer.actions;
 export default reducer.reducer;

@@ -4,11 +4,14 @@ import { useEffect, useRef, useState } from "react";
 import styles from "./section4.module.scss";
 import Carousel from "../carousel/Carousel";
 import { useDispatch, useSelector } from "react-redux";
-import {  setCarousel2, setPhotography } from "../../redux/reducers/reducer";
+import {
+  setCarousel2,
+  setPhotography,
+  setPhotographyIsVisible,
+} from "../../redux/reducers/reducer";
 import { v4 } from "uuid";
-import Masonry from 'react-masonry-css'
-import sameStyles from '../../styles/same.module.scss'
-
+import Masonry from "react-masonry-css";
+import sameStyles from "../../styles/same.module.scss";
 
 const arr2 = [
   "3C67095A-DDEF-4C20-947C-DDCB3DF97AAD.JPEG",
@@ -69,62 +72,82 @@ const arr2 = [
 ];
 
 const Section4 = () => {
-  const [indexImage , setIndexImage] = useState(0)
-  const {carousel2} = useSelector((state) => state.reducer)
-  const dispatch = useDispatch()
-  const ref = useRef()
+  const [indexImage, setIndexImage] = useState(0);
+  const { carousel2 } = useSelector((state) => state.reducer);
+  const dispatch = useDispatch();
+  const ref = useRef();
+  const [isVisible, setIsVisible] = useState(false);
 
   const breakpointColumnsObj = {
     default: 10,
     1100: 7,
     700: 5,
-    500: 2
+    500: 2,
+  };
+  const options = {
+    root: null,
+    rootMargin: "0px",
+    thresholds: 1.0,
   };
 
   const imageHandler = (index) => {
-    setIndexImage(index)
+    setIndexImage(index);
     dispatch(setCarousel2(true));
     document.body.classList.toggle("lock");
+  };
 
-  }
+  useEffect(() => {
+    let y = ref?.current?.offsetTop;
+    dispatch(setPhotography(y));
+    const observer = new IntersectionObserver((entries) => {
+      const [entry] = entries;
 
-  useEffect(()=>{
-    let y = ref?.current?.offsetTop
-    dispatch(setPhotography(y))
-  })
+      setIsVisible(entry.isIntersecting);
+      if (entry.intersectionRatio < 0.5) setIsVisible(false);
+
+      console.log(entry, "section4");
+    }, options);
+
+    if (ref.current) observer.observe(ref.current);
+    dispatch(setPhotographyIsVisible(isVisible));
+    return () => {
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      if (ref.current) observer.unobserve(ref.current);
+    };
+  });
   return (
     <section className={styles["section4-container"]} ref={ref}>
-            {
-        carousel2 ? <Carousel arr={arr2} index={indexImage} path={'photography'}/>: ''
-      }
+      {carousel2 ? (
+        <Carousel arr={arr2} index={indexImage} path={"photography"} />
+      ) : (
+        ""
+      )}
       <div className={styles["section4"]}>
-        <div className={sameStyles["aside"] + ' ' + styles['section4-aside']}>
+        <div className={sameStyles["aside"] + " " + styles["section4-aside"]}>
           <h2>PHOTOGRAPHY</h2>
         </div>
 
         {
           <Masonry
-          breakpointCols={breakpointColumnsObj}
-          className={styles["my-masonry-grid"]}
-          columnClassName={styles["my-masonry-grid_column"]}>
-                  {arr2.map((item, index) => {
-          return (
-            <div  key={v4()} className={styles['image-wrapper']}>
-           
-              <img
-                onClick={()=> imageHandler(index)}
-                src={"/photography/" + item}
-                data-src={"/photography/" + item}
-                alt="image"
-                className={styles['image']}
-           
-              />
-            </div>
-          );
-        })}
-        </Masonry>
+            breakpointCols={breakpointColumnsObj}
+            className={styles["my-masonry-grid"]}
+            columnClassName={styles["my-masonry-grid_column"]}
+          >
+            {arr2.map((item, index) => {
+              return (
+                <div key={v4()} className={styles["image-wrapper"]}>
+                  <img
+                    onClick={() => imageHandler(index)}
+                    src={"/photography/" + item}
+                    data-src={"/photography/" + item}
+                    alt="image"
+                    className={styles["image"]}
+                  />
+                </div>
+              );
+            })}
+          </Masonry>
         }
-
       </div>
     </section>
   );

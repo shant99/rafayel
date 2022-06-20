@@ -5,9 +5,13 @@ import { useEffect, useRef, useState } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Carousel from "../carousel/Carousel";
-import { setAboutMe, setCarousel } from "../../redux/reducers/reducer";
+import {
+  setAboutMe,
+  setAboutMeIsVisible,
+  setCarousel,
+} from "../../redux/reducers/reducer";
 import { useDispatch, useSelector } from "react-redux";
-import sameStyles from '../../styles/same.module.scss'
+import sameStyles from "../../styles/same.module.scss";
 
 let arr = [
   "IMG_1906.JPG",
@@ -26,15 +30,37 @@ const Section2: React.FC = () => {
   const { carousel } = useSelector((state: any) => state.reducer);
   const ref: any = useRef();
 
+  const [isVisible, setIsVisible] = useState(false);
+
   const imageClickHandler = (index: any) => {
     dispatch(setCarousel(true));
     setIndexImage(index);
     document.body.classList.toggle("lock");
   };
 
+  const options = {
+    root: null,
+    rootMargin: "0px",
+    thresholds: 1.0,
+  };
+
   useEffect(() => {
-    let y: any = ref?.current?.offsetTop;
+    let y: any = ref.current.offsetTop;
+    console.log(y)
     dispatch(setAboutMe(y));
+
+    const observer = new IntersectionObserver((entries) => {
+      const [entry] = entries;
+
+      setIsVisible(entry.isIntersecting);
+    }, options);
+
+    if (ref.current) observer.observe(ref.current);
+    dispatch(setAboutMeIsVisible(isVisible));
+    return () => {
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      if (ref.current) observer.unobserve(ref.current);
+    };
   });
 
   return (

@@ -1,25 +1,45 @@
 /* eslint-disable jsx-a11y/alt-text */
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
-import { setDesign } from "../../redux/reducers/reducer";
+import { setDesign, setDesignIsVisible } from "../../redux/reducers/reducer";
 import styles from "./section3.module.scss";
-import sameStyles from '../../styles/same.module.scss'
+import sameStyles from "../../styles/same.module.scss";
 
 const arr = ["IMG_4898.JPG", "venlogo.svg", "marsmarislogo.svg", "new.jpg"];
 const arr2 = ["Home–3.jpg", "Home–20.jpg", "IMG_3905.JPG", "Web 1920–1.jpg"];
 
 const Section3 = () => {
+  const [isVisible, setIsVisible] = useState(false);
   const dispatch = useDispatch();
   const ref: any = useRef();
+
+  const options = {
+    root: null,
+    rootMargin: "0px",
+    thresholds: 1.0,
+  };
+
   useEffect(() => {
     let y: any = ref?.current?.offsetTop;
     dispatch(setDesign(y));
+
+    const observer = new IntersectionObserver((entries) => {
+      const [entry] = entries;
+      setIsVisible(entry.isIntersecting);
+    }, options);
+
+    if (ref.current) observer.observe(ref.current);
+    dispatch(setDesignIsVisible(isVisible));
+    return () => {
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      if (ref.current) observer.unobserve(ref.current);
+    };
   });
   return (
     <section className={styles["section3-container"]} ref={ref}>
       <div className={styles["section3"]}>
-        <div className={sameStyles["aside"] + ' ' + styles} >
+        <div className={sameStyles["aside"] + " " + styles}>
           <h2>DESIGN</h2>
         </div>
         <div className={styles["slice1-wrapper"]}>
@@ -98,28 +118,28 @@ const Section3 = () => {
             </div>
             <div className={styles["slice2-images"]}>
               <Image
-                style={{objectFit: 'cover'}}
+                style={{ objectFit: "cover" }}
                 width={447}
                 height={251}
                 src={"/designjpg/Home–3.jpg"}
                 alt="image"
               />
               <Image
-                style={{objectFit: 'cover'}}
+                style={{ objectFit: "cover" }}
                 width={447}
                 height={251}
                 src={"/designjpg/Home–20.jpg"}
                 alt="image"
               />
               <Image
-                style={{objectFit: 'cover'}}
+                style={{ objectFit: "cover" }}
                 width={447}
                 height={251}
                 src={"/designjpg/IMG_3905.JPG"}
                 alt="image"
               />
               <Image
-                style={{objectFit: 'cover'}}
+                style={{ objectFit: "cover" }}
                 width={447}
                 height={251}
                 src={"/designjpg/Web 1920–1.jpg"}

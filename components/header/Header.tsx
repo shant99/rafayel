@@ -2,53 +2,61 @@ import styles from "./header.module.scss";
 import { v4 } from "uuid";
 import { SetStateAction, useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Section5Ref } from "../Refs.js";
+import Section2 from "../section2/Section2";
 
 const arr: string[] = ["Home", "About Me", "Design", "Photography", "Contact"];
 
 const Header: React.FC = () => {
   const [buttonIndex, setButtonIndex] = useState<number>(0);
   const [hamburger, setHamburger] = useState(false);
-  const { home, aboutMe, design, photography, contact } = useSelector(
-    (state: any) => state.reducer
-  );
+  const {
+    home,
+    aboutMe,
+    design,
+    photography,
+    contact,
+    homeIsVisible,
+    aboutMeIsVisible,
+    designIsVisible,
+    photographyIsVisible,
+    contactIsVisible,
+  } = useSelector((state: any) => state.reducer);
   const dispatch = useDispatch();
-  const [obs, setObs] = useState({});
-  const [scroll, setScroll] = useState(0);
+
 
   const navButtonClickHandler = (
     index: SetStateAction<number>,
     item: string
   ): void => {
-    console.log(scroll , aboutMe.height , 'scroll , aboutME')
+    console.log( aboutMe.height, "aboutME");
     setButtonIndex(index);
-    setHamburger(false)
+    setHamburger(false);
     let itemValue = item.toLowerCase().replace(/\s/g, "");
     if (home.name === itemValue) {
-      setScroll(home.height)
       window.scroll({
         behavior: "smooth",
         top: home.height,
       });
     } else if (aboutMe.name === itemValue) {
-      setScroll(aboutMe.height - 60)
       window.scroll({
         behavior: "smooth",
-        top: aboutMe.height ,
+        top: aboutMe.height - 60,
       });
     } else if (design.name === itemValue) {
       window.scroll({
         behavior: "smooth",
-        top: design.height - 60 ,
+        top: design.height + 60,
       });
     } else if (photography.name === itemValue) {
       window.scroll({
         behavior: "smooth",
-        top: photography.height ,
+        top: photography.height + 60,
       });
     } else if (contact.name === itemValue) {
       window.scroll({
         behavior: "smooth",
-        top: contact.height ,
+        top: contact.height + 60 ,
       });
     }
   };
@@ -62,24 +70,28 @@ const Header: React.FC = () => {
     : styles[""];
 
   const menuActive = hamburger ? styles["menu-active"] : styles[""];
-  if (typeof window !== "undefined") {
-    // window.addEventListener("scroll", (e) => {
-    //   setScroll(window.scrollY);
-    // });
-  }
+
   useEffect(() => {
-    // if (scroll <= aboutMe.height) {
-    //   setButtonIndex(0);
-    // } else if (scroll >= (aboutMe.height ) && scroll <= design.height) {
-    //   setButtonIndex(1);
-    //  } else if(scroll >= (design.height )&& scroll <= photography.height){
-    //  setButtonIndex(2)
-    // }else if(scroll >= photography.height && scroll <= contact.height){
-    //   setButtonIndex(3)
-    // }else if(scroll >= contact.height){
-    //   setButtonIndex(4)
-    // }
-  }, [aboutMe.height, contact.height, design.height, photography.height, scroll]);
+      if (homeIsVisible) {
+        setButtonIndex(0);
+      } else if (aboutMeIsVisible) {
+        setButtonIndex(1);
+      } else if (designIsVisible) {
+        setButtonIndex(2);
+      }else if (contactIsVisible) {
+        setButtonIndex(4);
+      } else if (photographyIsVisible) {
+        setButtonIndex(3);
+      }  
+
+  }, [
+    dispatch,
+    homeIsVisible,
+    aboutMeIsVisible,
+    designIsVisible,
+    photographyIsVisible,
+    contactIsVisible,
+  ]);
 
   return (
     <div className={styles["header-container"]}>

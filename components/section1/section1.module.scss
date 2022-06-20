@@ -26,8 +26,8 @@
   align-items: center;
 }
 .image {
-  width: 358px;
-  height: 358px;
+  width: 200px;
+  height: 200px;
   background-size: contain;
   background-image: url("/icon2/rafayel_photo_home page.svg");
   border-radius: 100%;
@@ -85,7 +85,9 @@
     z-index: 5;
     font-family: 'Lato', sans-serif;
     font-weight: 900;
-    
+    &:nth-of-type(1){
+      font-size: 20px;
+    }
     &:nth-of-type(2){
       width: 650px;
       white-space: nowrap;
@@ -133,25 +135,14 @@
   }
 }
 
-@media (max-width: 1200px) {
-  .image {
-    width: 258px;
-    height: 258px;
-  }
-  .section1-slice2 {
-    & .section1-head {
-      letter-spacing: 2.4px;
-      font-size: 24px;
-      line-height: 45px;
-    }
-  }
-}
+
 @media screen and (min-width: 993px ) and (max-width: 1200px){
   .section1-slice2 {
     & .section1-head{
-      font-size: 28px;
+      font-size: 24px;
       &:nth-of-type(2){
-        width: 500px;
+        width: 550px;
+
       }
     }
   }
