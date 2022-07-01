@@ -30,8 +30,8 @@
     border: none;
     background: transparent;
     color: #ded8d8;
-    height: 25px;
-    width: 25px;
+    height: 35px;
+    width: 35px;
     font-size: 35px;
     z-index: 160;
     line-height: 1;
@@ -58,7 +58,9 @@
   
   .prev{
     position: absolute;
-    top: 50%;
+    background-color: transparent !important;
+    transform: translateY(50%);
+    margin-top: -15px;
     left: 100px;
     z-index: 200;
     cursor: pointer;
@@ -69,7 +71,9 @@
   }
   .next{
     position: absolute;
-    top: 50%;
+    background-color: transparent !important;
+    transform: translateY(50%);
+    margin-top: -15px;
     right: 100px;
     z-index: 200;
     cursor: pointer;
@@ -115,7 +119,8 @@
     .image{
       object-fit: contain;
       object-position: center;
-      width: 270px;
-      height: 450px;
+      width: 80vw;
+      height: 80vh;
+      // max-width: 400px;
     }
   }

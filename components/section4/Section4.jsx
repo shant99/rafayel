@@ -77,7 +77,7 @@ const Section4 = () => {
   const dispatch = useDispatch();
   const ref = useRef();
   const [isVisible, setIsVisible] = useState(false);
-  const [visibleCount , setVisibleCount ] = useState(15)
+  const [visibleCount , setVisibleCount ] = useState(20)
 
   const breakpointColumnsObj = {
     default: 8,
