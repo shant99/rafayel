@@ -31,6 +31,7 @@ const Section2: React.FC = () => {
   const ref: any = useRef();
 
   const [isVisible, setIsVisible] = useState(false);
+  const [seeMoreButton , setSeeMoreButton] = useState(false)
 
   const imageClickHandler = (index: any) => {
     dispatch(setCarousel(true));
@@ -46,7 +47,6 @@ const Section2: React.FC = () => {
 
   useEffect(() => {
     let y: any = ref.current.offsetTop;
-    console.log(y)
     dispatch(setAboutMe(y));
 
     const observer = new IntersectionObserver((entries) => {
@@ -63,6 +63,12 @@ const Section2: React.FC = () => {
     };
   });
 
+  const seeMoreButtonClickHandler = () => {
+    setSeeMoreButton(prev => !prev)
+  }
+
+  const section2Slice1PActive = seeMoreButton ? styles["section2-slice1-p-active"]: styles[""]
+
   return (
     <section className={styles["section2-container"]} ref={ref}>
       {carousel ? (
@@ -76,38 +82,48 @@ const Section2: React.FC = () => {
           <h2>ABOUT ME</h2>
         </div>
         <div className={styles["section2-slice1"]}>
-          <p>
-            {" "}
-            Hello! I am Rafayel. I’m passionate about photography and anything
-            related to it. I have been practicing photography for 6 years now. I
-            started out as an amateur photographer with the desire to find
-            beauty in everything. Today I am a photographer and designer who
-            helps others to see beauty everywhere.
-          </p>{" "}
-          <p>
-            I have one year experience working in the UI/UX sphere. I enjoyed
-            meeting new people and grasping how they think. It’s one of the
-            reasons I had many meetings: from product management to anything
-            design related  (research, design thinking, design system, etc.) and
-            communicated with people in general, as there’s always an
-            opportunity to learn something new from the other point of view.
-          </p>{" "}
-          <p>
-            {" "}
-            Afterwards I started my freelance journey as a logo designer. It is
-            captivating to create a unique piece of art that later represents a
-            company or an initiative. Today I look forward to taking on all
-            kinds of design work․{" "}
-          </p>
-          <p>
-            I am currently involved in entrepreneurship, which of course is also
-            connected to art and design.
-          </p>
-          <p>
-            {" "}
-            And finally, in my spare I enjoy cycling and taking care of my
-            plants :)
-          </p>
+          <div className={styles["section2-slice1-see-more-button-wrapper"]}>
+            <h2>About Me</h2>
+            <button 
+            onClick={seeMoreButtonClickHandler}
+            className={styles["section2-slice1-see-more-button"]}>
+              See More
+            </button>
+          </div>
+          <div className={styles["section2-slice1-p"] + ' ' + section2Slice1PActive}>
+            <p>
+              {" "}
+              Hello! I am Rafayel. I’m passionate about photography and anything
+              related to it. I have been practicing photography for 6 years now.
+              I started out as an amateur photographer with the desire to find
+              beauty in everything. Today I am a photographer and designer who
+              helps others to see beauty everywhere.
+            </p>{" "}
+            <p>
+              I have one year experience working in the UI/UX sphere. I enjoyed
+              meeting new people and grasping how they think. It’s one of the
+              reasons I had many meetings: from product management to anything
+              design related  (research, design thinking, design system, etc.)
+              and communicated with people in general, as there’s always an
+              opportunity to learn something new from the other point of view.
+            </p>{" "}
+            <p>
+              {" "}
+              Afterwards I started my freelance journey as a logo designer. It
+              is captivating to create a unique piece of art that later
+              represents a company or an initiative. Today I look forward to
+              taking on all kinds of design work․{" "}
+            </p>
+            <p>
+              I am currently involved in entrepreneurship, which of course is
+              also connected to art and design.
+            </p>
+            <p>
+              {" "}
+              And finally, in my spare I enjoy cycling and taking care of my
+              plants :)
+            </p>
+          </div>
         </div>
         <div className={styles["section2-slice2"]}>
           <div className={styles["business-box"]}>

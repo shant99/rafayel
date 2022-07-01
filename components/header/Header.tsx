@@ -29,7 +29,7 @@ const Header: React.FC = () => {
     index: SetStateAction<number>,
     item: string
   ): void => {
-    console.log( aboutMe.height, "aboutME");
+    document.body.classList.toggle("lock");
     setButtonIndex(index);
     setHamburger(false);
     let itemValue = item.toLowerCase().replace(/\s/g, "");
@@ -63,6 +63,7 @@ const Header: React.FC = () => {
 
   const hamburgerHandler = (e: any) => {
     setHamburger((prev) => !prev);
+    document.body.classList.toggle("lock");
   };
 
   const hamburgerActive = hamburger
@@ -103,6 +104,7 @@ const Header: React.FC = () => {
           <span className={styles["menu-button"]}></span>
         </div>
         <div className={styles["header-nav-buttons"] + " " + menuActive}>
+          <h2 className={styles['mobile-menu-logo']}>Rafayel.am</h2>
           <ul>
             {arr.map((item, index) => (
               <li key={v4()}>

@@ -58,14 +58,14 @@
       background: #ffffff2f 0% 0% no-repeat padding-box;
       box-shadow: 0px 3px 6px #00000029;
       border-radius: 15px;
-      &:nth-child(odd){
-        transform: translatey(0px);
-        animation: float2 6s ease-in-out infinite;
-      }
-      &:nth-child(even){
-        transform: translatey(0px);
-        animation: float 6s ease-in-out infinite;
-      }
+      // &:nth-child(odd){
+      //   transform: translatey(0px);
+      //   animation: float2 6s ease-in-out infinite;
+      // }
+      // &:nth-child(even){
+      //   transform: translatey(0px);
+      //   animation: float 6s ease-in-out infinite;
+      // }
     }
   }
   
@@ -86,14 +86,14 @@
       background: #ffffff2f 0% 0% no-repeat padding-box;
       box-shadow: 0px 3px 6px #00000029;
       border-radius: 15px;
-      &:nth-child(odd){
-        transform: translatey(0px);
-        animation: float 6s ease-in-out infinite;
-      }
-      &:nth-child(even){
-        transform: translatey(0px);
-        animation: float2 6s ease-in-out infinite;
-      }
+      // &:nth-child(odd){
+      //   transform: translatey(0px);
+      //   animation: float 6s ease-in-out infinite;
+      // }
+      // &:nth-child(even){
+      //   transform: translatey(0px);
+      //   animation: float2 6s ease-in-out infinite;
+      // }
     }
   }
   .slice1-row3 {
@@ -137,34 +137,34 @@
     }
   }
 }
-@keyframes float {
-  0% {
-    box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
-    transform: translatey(0px);
-  }
-  50% {
-    box-shadow: 0 10px 15px 0px rgba(0,0,0,0.2);
-    transform: translatey(-3px);
-  }
-  100% {
-    box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
-    transform: translatey(0px);
-  }
-}
-@keyframes float2 {
-  0% {
-    box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
-    transform: translatey(0px);
-  }
-  50% {
-    box-shadow: 0 10px 15px 0px rgba(0,0,0,0.2);
-    transform: translatey(3px);
-  }
-  100% {
-    box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
-    transform: translatey(0px);
-  }
-}
+// @keyframes float {
+//   0% {
+//     box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+//     transform: translatey(0px);
+//   }
+//   50% {
+//     box-shadow: 0 10px 15px 0px rgba(0,0,0,0.2);
+//     transform: translatey(-3px);
+//   }
+//   100% {
+//     box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+//     transform: translatey(0px);
+//   }
+// }
+// @keyframes float2 {
+//   0% {
+//     box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+//     transform: translatey(0px);
+//   }
+//   50% {
+//     box-shadow: 0 10px 15px 0px rgba(0,0,0,0.2);
+//     transform: translatey(3px);
+//   }
+//   100% {
+//     box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+//     transform: translatey(0px);
+//   }
+// }
 .slice2-wrapper {
   position: relative;
   margin-left: 32px;

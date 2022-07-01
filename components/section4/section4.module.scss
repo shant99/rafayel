@@ -48,8 +48,22 @@
   margin-bottom: 1px;
 }
 // 
+.load-more-button{
 
-
+  background: transparent linear-gradient(180deg, #008cba 0%, #086add 100%) 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px rgb(0 0 0 / 16%);
+  border-radius: 2px;
+  border: none;
+  color: #ffffff;
+  font-size: 16px;
+  padding: 8px 10px;
+  width: 150px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+.load-more-button:hover{
+  background: transparent linear-gradient(180deg, #0397c8 0%, #0e74e8 100%) 0% 0% no-repeat padding-box;
+}
 @media screen and (min-width: 993px) and (max-width: 1200px) {
 }
 @media screen and (min-width: 769px) and (max-width: 992px) {

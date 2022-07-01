@@ -24,25 +24,25 @@ const arr2 = [
   "2018-01-06 17.07.10.JPG",
   "2018-05-09 12.14.08.JPG",
   "2018-05-09 18.24.16 (1).JPG",
-  "2018-05-25 15.49.33.JPG",
+  // "2018-05-25 15.49.33.JPG",
   "D90B698E-3FB0-4C31-A4C7-B0FD52FF69F1.JPEG",
   "DSCN0391.JPG",
   "DSCN0397.JPG",
-  "DSCN4831.JPG",
+  // "DSCN4831.JPG",
   "DSCN6604.JPG",
-  "DSCN6652.JPG",
-  "DSCN6663.JPG",
+  // "DSCN6652.JPG",
+  // "DSCN6663.JPG",
   "FullSizeRender 2.jpg",
   "FullSizeRender 3.jpg",
-  "FullSizeRender 4.jpg",
+  // "FullSizeRender 4.jpg",
   "FullSizeRender.jpg",
   "IMG_0396.jpg",
   "IMG_0476.jpg",
   "IMG_0669.JPG",
   "IMG_0753.JPG",
   "IMG_1207.JPG",
-  "IMG_1827.jpg",
-  "IMG_2630.jpg",
+  // "IMG_1827.jpg",
+  // "IMG_2630.jpg",
   "IMG_3553.jpg",
   "IMG_3658.jpg",
   "IMG_3659.jpg",
@@ -57,7 +57,7 @@ const arr2 = [
   "IMG_4941.jpg",
   "IMG_5731.jpg",
   "IMG_5732.JPG",
-  "IMG_5733.jpg",
+  // "IMG_5733.jpg",
   "IMG_5909.JPG",
   "IMG_6001.JPG",
   "IMG_6002.JPG",
@@ -66,9 +66,9 @@ const arr2 = [
   "rafayel-yeranosyan-3v6xbZFMHsU-unsplash.jpg",
   "rafayel-yeranosyan-a8UWfjSjzqE-unsplash.jpg",
   "rafayel-yeranosyan-UIzp4rtz47U-unsplash.jpg",
-  "Snapseed 6.jpg",
-  "Snapseed 8.JPG",
-  "Snapseed 12.JPG",
+  // "Snapseed 6.jpg",
+  // "Snapseed 8.JPG",
+  // "Snapseed 12.JPG",
 ];
 
 const Section4 = () => {
@@ -77,9 +77,10 @@ const Section4 = () => {
   const dispatch = useDispatch();
   const ref = useRef();
   const [isVisible, setIsVisible] = useState(false);
+  const [visibleCount , setVisibleCount ] = useState(15)
 
   const breakpointColumnsObj = {
-    default: 10,
+    default: 8,
     1100: 7,
     700: 5,
     500: 2,
@@ -96,6 +97,10 @@ const Section4 = () => {
     document.body.classList.toggle("lock");
   };
 
+  const loadMoreClickHandler = () => {
+    setVisibleCount(prev => prev + 15)
+  }
+
   useEffect(() => {
     let y = ref?.current?.offsetTop;
     dispatch(setPhotography(y));
@@ -105,7 +110,7 @@ const Section4 = () => {
       setIsVisible(entry.isIntersecting);
       if (entry.intersectionRatio < 0.5) setIsVisible(false);
 
-      console.log(entry, "section4");
+
     }, options);
 
     if (ref.current) observer.observe(ref.current);
@@ -133,7 +138,7 @@ const Section4 = () => {
             className={styles["my-masonry-grid"]}
             columnClassName={styles["my-masonry-grid_column"]}
           >
-            {arr2.map((item, index) => {
+            {arr2.slice(0 , visibleCount).map((item, index) => {
               return (
                 <div key={v4()} className={styles["image-wrapper"]}>
                   <img
@@ -148,6 +153,10 @@ const Section4 = () => {
             })}
           </Masonry>
         }
+        <button
+        style={{display: visibleCount >= arr2.length ? 'none' : 'block'}}
+          className={styles['load-more-button']}
+        onClick={loadMoreClickHandler}>load more</button>
       </div>
     </section>
   );

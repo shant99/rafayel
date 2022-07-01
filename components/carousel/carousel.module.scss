@@ -1,7 +1,7 @@
 
   .carousel-container{
     width: 100%;
-    padding: 79px 100px;
+    padding: 100px 100px;
     position: relative;
     background-color: #0000003b;
     position: fixed;
@@ -32,8 +32,9 @@
     color: #ded8d8;
     height: 25px;
     width: 25px;
-    font-size: 32px;
+    font-size: 35px;
     z-index: 160;
+    line-height: 1;
   }
   .slider{
     width: 100% ;
@@ -48,10 +49,9 @@
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
-    padding: 107px 100px;
   }
   .image{
-    object-fit: cover;
+    object-fit: contain;
     width: 278px;
     height: 407px;
   }
@@ -64,6 +64,8 @@
     cursor: pointer;
     font-size: 40px;
     color: #ded8d8;
+    background-color: white;
+    border-radius: 100%;
   }
   .next{
     position: absolute;
@@ -73,6 +75,8 @@
     cursor: pointer;
     font-size: 40px;
     color: #ded8d8;
+    background-color: white;
+    border-radius: 100%;
   }
   
 
@@ -87,12 +91,12 @@
       right: 20px;
     }
     .image-carousel{
-      padding: 70px 100px;
+      padding: 120px 100px;
     }
     .image{
-      object-fit: cover;
-      width: 250px;
-      height: 350px;
+      object-fit: contain;
+      width: 350px;
+      height: 450px;
     }
   }
   @media screen and (max-width: 768px){
@@ -106,11 +110,12 @@
       right: 20px;
     }
     .image-carousel{
-      padding: 70px 100px;
+      padding: 0;
     }
     .image{
-      object-fit: cover;
-      width: 250px;
-      height: 350px;
+      object-fit: contain;
+      object-position: center;
+      width: 270px;
+      height: 450px;
     }
   }
