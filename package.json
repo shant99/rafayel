@@ -5,8 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "startNext": "next start",
+    "start": "NODE_ENV=production node server.js",
+    "lint": "next lint" 
   },
   "dependencies": {
     "@emailjs/browser": "^3.6.2",

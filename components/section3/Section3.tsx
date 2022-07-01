@@ -146,46 +146,6 @@ const Section3 = () => {
                 alt="image"
               />
             </div>
-            {/* <div className={styles["slice2-row1"]}>
-              <div className={styles["slice2-row1-image-wraper"]}>
-                <Image
-                  className={styles["sevan"]}
-                  width={131}
-                  height={131}
-                  src={"/designjpg/sevandivers_logo.svg"}
-                  alt="image"
-                />
-              </div>
-              <div className={styles["slice2-row1-image-wraper"]}>
-                <Image
-                  className={styles["sevan"]}
-                  width={131}
-                  height={131}
-                  src={"/designjpg/sevandivers_logo.svg"}
-                  alt="image"
-                />
-              </div>
-            </div>
-            <div className={styles["slice2-row2"]}>
-              <div className={styles["slice2-row2-image-wraper"]}>
-                <Image
-                  className={styles["sevan"]}
-                  width={131}
-                  height={131}
-                  src={"/designjpg/sevandivers_logo.svg"}
-                  alt="image"
-                />
-              </div>
-              <div className={styles["slice2-row2-image-wraper"]}>
-                <Image
-                  className={styles["sevan"]}
-                  width={131}
-                  height={131}
-                  src={"/designjpg/sevandivers_logo.svg"}
-                  alt="image"
-                />
-              </div>
-            </div> */}
           </div>
         </div>
       </div>
